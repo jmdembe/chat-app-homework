@@ -52,7 +52,8 @@
                       }//ends headers for getMessage
                     })
                     .done (function handleMessageSuccess (data) {
-                        console.log('Message success');
+                        $('.send-message')
+                            .trigger('reset');
                     })//ends callback function for getMessage success
                     .fail (function handleMessageError (xhr) {
                         console.log('Error', xhr);
