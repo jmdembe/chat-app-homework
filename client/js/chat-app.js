@@ -6,7 +6,6 @@
 
      $('.login')
          .on('submit', function getLogin(event) {
-           console.log('Im in the submit');
            var userName = $('.username').val();
            event.preventDefault();
              $.ajax({
@@ -47,16 +46,9 @@
                     .fail (function handleMessageError (xhr) {
                         console.log('Error', xhr);
                     })//ends callback for getMessage fail
-
-
           })//ends getMessage event handler
 
-
-
-
-
       window.chat.listenForMessages(function messageHandler(event) {
-          var chatMessage = $('input.message').val();
 
 
           });//end of listenForMessages
