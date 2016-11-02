@@ -25,6 +25,8 @@
              .done (function handleUsernameSuccess(data){
                   $('.login')
                       .hide()
+                  $('.send-message')
+                      .show()
                  console.log("I MADE IT!");
                  console.log(data);
                  token = data.token;
@@ -35,6 +37,7 @@
          })//ends event handler
 
        $('.send-message')
+          .hide()
           .on('submit', function getMessage(event) {
               event.preventDefault();
               var chatMessage = $('.message').val();
