@@ -4,6 +4,12 @@
 
     var token;
 
+    window.chat.listenForMessages(function messageHandler(data) {
+        $('.messages')
+          .append('<p>' + data.username+ ": " + data.message + '</p>')
+
+    });//end of listenForMessages
+
      $('.login')
          .on('submit', function getLogin(event) {
            var userName = $('.username').val();
@@ -26,7 +32,6 @@
              })//end of fail callback
          })//ends event handler
 
-
        $('.send-message')
           .on('submit', function getMessage(event) {
               event.preventDefault();
@@ -38,6 +43,7 @@
                       data: JSON.stringify({ message: chatMessage}),
                       headers:{
                           'Authorization': token,
+                          'Content-Type': 'application/json'
                       }//ends headers for getMessage
                     })
                     .done (function handleMessageSuccess (data) {
@@ -47,10 +53,5 @@
                         console.log('Error', xhr);
                     })//ends callback for getMessage fail
           })//ends getMessage event handler
-
-      window.chat.listenForMessages(function messageHandler(event) {
-
-
-          });//end of listenForMessages
 
 }());
