@@ -23,6 +23,8 @@
                  }//end of headers for getLogin
                })//end of ajax call for login
              .done (function handleUsernameSuccess(data){
+                  $('.login')
+                      .hide()
                  console.log("I MADE IT!");
                  console.log(data);
                  token = data.token;
